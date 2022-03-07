@@ -9,3 +9,31 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  username    String    @unique @db.VarChar(40)
+  email       String    @unique
+  password    String    
+  role        Int       @db.SmallInt @default(0)
+  confirmed   Boolean   @default(false)
+}
+
+model CatalogMaster {
+  id            String    @id @default(cuid())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  name          String    @db.Text
+  backlogItems  BacklogItem[]
+}
+
+model BacklogItem {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  quantity    Int       @db.Integer
+  catalog     CatalogMaster @relation(fields: [catalogId], references: [id])
+  catalogId   String
+}
