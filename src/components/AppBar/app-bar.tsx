@@ -1,5 +1,3 @@
-import UserWidget from '../UserWidget/user-widget';
-
 interface IAppBarProps {
   title: string;
 }
@@ -12,7 +10,6 @@ export const AppBar = (props: IAppBarProps) => {
         {title}
       </div>
       <div>
-        <UserWidget />
       </div>
     </div>
   )
