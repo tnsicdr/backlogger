@@ -1,10 +1,10 @@
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { AppLayout } from '../../../components/AppLayout';
+import { AppLayout } from '../../components/AppLayout';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const RegistrationPage: NextPage = () => {
+const UserPage: NextPage = () => {
   const router = useRouter();
   const { t } = useTranslation('common');
   const locale = router.locale;
@@ -25,4 +25,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default RegistrationPage;
+export default UserPage;

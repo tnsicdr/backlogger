@@ -1,3 +1,7 @@
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+
 interface IAppBarProps {
   title: string;
 }
@@ -5,12 +9,15 @@ interface IAppBarProps {
 export const AppBar = (props: IAppBarProps) => {
   const { title } = props;
   return (
-    <div className="flex flex-row w-full bg-white border-b border-gray-600 p-4 shadow-md">
-      <div>
-        {title}
+    <nav className="flex w-full flex-row border-b border-gray-600 bg-white p-4 shadow-md">
+      <div className="flex w-full flex-row justify-between">
+        <Link href="/" aria-label="Homepage">
+          {title}
+        </Link>
+        <Link href="/user" passHref aria-label="User page">
+          <FontAwesomeIcon icon={faCircleUser} />
+        </Link>
       </div>
-      <div>
-      </div>
-    </div>
-  )
-}
+    </nav>
+  );
+};
