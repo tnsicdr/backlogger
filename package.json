@@ -11,6 +11,11 @@
     "migrate:dev": "dotenv -e .env.local prisma migrate dev"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.0",
+    "@fortawesome/free-brands-svg-icons": "^6.1.0",
+    "@fortawesome/free-regular-svg-icons": "^6.1.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.0",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@prisma/client": "^3.10.0",
     "apollo-server-micro": "^3.6.3",
     "graphql": "^16.3.0",
