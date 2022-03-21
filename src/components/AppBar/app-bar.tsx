@@ -1,6 +1,7 @@
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { UserWidget } from './user-widget';
 
 interface IAppBarProps {
   title: string;
@@ -9,14 +10,15 @@ interface IAppBarProps {
 export const AppBar = (props: IAppBarProps) => {
   const { title } = props;
   return (
-    <nav className="flex w-full flex-row border-b border-gray-600 bg-white p-4 shadow-md">
-      <div className="flex w-full flex-row justify-between">
-        <Link href="/" aria-label="Homepage">
+    <nav
+      aria-label="menu nav"
+      className="flex w-full flex-row bg-white p-4 shadow-md"
+    >
+      <div className="flex w-full flex-row justify-between items-center">
+        <Link href="/" aria-label="Home">
           {title}
         </Link>
-        <Link href="/user" passHref aria-label="User page">
-          <FontAwesomeIcon icon={faCircleUser} />
-        </Link>
+        <UserWidget username="Username"/>
       </div>
     </nav>
   );
